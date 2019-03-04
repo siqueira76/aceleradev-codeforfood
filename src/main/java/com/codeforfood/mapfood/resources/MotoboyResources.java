@@ -13,7 +13,7 @@ import com.codeforfood.mapfood.service.MotoboyService;
 
 @RestController
 @RequestMapping(value = "/motoboys")
-public class MotoboyResouces {
+public class MotoboyResources {
 	
 	@Autowired
 	MotoboyService service;
