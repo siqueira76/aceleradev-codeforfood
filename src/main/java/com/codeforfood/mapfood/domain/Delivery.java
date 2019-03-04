@@ -3,7 +3,7 @@ package com.codeforfood.mapfood.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "entregas")
+@Document(collection = "deliveries")
 public class Delivery {
 
     @Id
