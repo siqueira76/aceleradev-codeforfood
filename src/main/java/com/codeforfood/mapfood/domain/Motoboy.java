@@ -12,18 +12,16 @@ public class Motoboy implements Serializable {
 	@Id
 	private String id;
 	private int ID_Motoboy;
-	private Double Longitude;
-	private Double Latitude;
+	private Position position;
 
 	public Motoboy() {
 	}
 
-	public Motoboy(String id, int iD_Motoboy, Double longitude, Double latitude) {
+	public Motoboy(String id, int iD_Motoboy, Position position) {
 		super();
 		this.id = id;
 		ID_Motoboy = iD_Motoboy;
-		Longitude = longitude;
-		Latitude = latitude;
+		this.position = position;
 	}
 
 	public String getId() {
@@ -42,20 +40,12 @@ public class Motoboy implements Serializable {
 		ID_Motoboy = iD_Motoboy;
 	}
 
-	public Double getLongitude() {
-		return Longitude;
+	public Position getPosition() {
+		return this.position;
 	}
 
-	public void setLongitude(Double longitude) {
-		Longitude = longitude;
-	}
-
-	public Double getLatitude() {
-		return Latitude;
-	}
-
-	public void setLatitude(Double latitude) {
-		Latitude = latitude;
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 
 	public static long getSerialversionuid() {
