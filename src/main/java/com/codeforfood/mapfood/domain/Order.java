@@ -10,10 +10,10 @@ public class Order {
     @Id
     private String id;
     /* The list of items that the client ordered */
-    private List<String> productList;
+    private List<Product> productList;
     private String clientID;
 
-    public Order(String id, List<String> productList, String clientID) {
+    public Order(String id, List<Product> productList, String clientID) {
         this.id = id;
         this.productList = productList;
         this.clientID = clientID;
@@ -27,11 +27,11 @@ public class Order {
         this.id = id;
     }
 
-    public List<String> getProductList() {
+    public List<Product> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<String> productList) {
+    public void setProductList(List<Product> productList) {
         this.productList = productList;
     }
 
