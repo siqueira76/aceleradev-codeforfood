@@ -14,6 +14,7 @@ public class Client implements Serializable {
 	private Integer ID_Cliente;
 	private double Longitude;
 	private double Latitude;
+	private ShoppingCart shoppingCart;
 
 	public Client() {
 	}
@@ -23,6 +24,7 @@ public class Client implements Serializable {
 		ID_Cliente = iD_Cliente;
 		Longitude = longitude;
 		Latitude = latitude;
+		shoppingCart = new ShoppingCart();
 	}
 
 	public int getID_Cliente() {
@@ -49,6 +51,14 @@ public class Client implements Serializable {
 		Latitude = latitude;
 	}
 
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -70,5 +80,4 @@ public class Client implements Serializable {
 			return false;
 		return true;
 	}
-
 }
