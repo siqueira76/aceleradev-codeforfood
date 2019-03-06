@@ -106,6 +106,12 @@ public class Token {
             String token = jsonObj.get("access_token").toString();
             prop.setProperty("access_token", token);
             prop.setProperty("requestDate", thisDate.toString());
+
+            try {
+                prop.store(new FileOutputStream((System.getProperty("user.dir") + "/application.properties")), null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
