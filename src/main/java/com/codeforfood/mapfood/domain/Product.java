@@ -15,7 +15,7 @@ public class Product {
     private String classification;
     private String address_city;
     private Double unit_price;
-    private int    quantity = 1;
+    private int    quantity;
 
     public Product() { }
 
@@ -28,6 +28,7 @@ public class Product {
         this.classification = classification;
         this.address_city = address_city;
         this.unit_price = unit_price;
+        this.quantity = 1;
     }
 
     public void incrementQuantity(int value) {
