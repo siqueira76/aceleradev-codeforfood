@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "clientes")
 public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	private String id;
 	private Integer ID_Cliente;

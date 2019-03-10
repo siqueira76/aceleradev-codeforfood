@@ -15,6 +15,7 @@ public class Product {
     private String classification;
     private String address_city;
     private Double unit_price;
+    private int    quantity;
 
     public Product() { }
 
@@ -27,6 +28,31 @@ public class Product {
         this.classification = classification;
         this.address_city = address_city;
         this.unit_price = unit_price;
+        this.quantity = 1;
+    }
+
+    public void incrementQuantity(int value) {
+        if(value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+
+        quantity += value;
+    }
+
+    public void decrementQuantity(int value) throws  IllegalArgumentException {
+        if(value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+        if(value > quantity) {
+            throw new IllegalArgumentException("Value to be decremented cannot be bigger than the product quantity");
+        }
+
+        quantity -= value;
+    }
+
+    /* Getters and Setters */
+    public int getQuantity() {
+        return quantity;
     }
 
     public String getId() {
