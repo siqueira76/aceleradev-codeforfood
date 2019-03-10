@@ -87,6 +87,10 @@ public class ShoppingCartResources {
                 clientCart.get().getTotalPrice()
         );
         orderResources.save(order);
+
+        // Clear the client's shopping cart
+        clientCart.get().clearShoppingCart();
+        service.save(clientCart.get());
     }
 
 }
