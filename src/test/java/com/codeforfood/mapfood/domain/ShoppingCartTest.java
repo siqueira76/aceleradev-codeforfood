@@ -92,14 +92,14 @@ public class ShoppingCartTest {
     public void checkIfProductIsCorrectlyIncremented() {
         ShoppingCart testCart = cart;
         testCart.addProduct(peanuts, 1);
-        assertEquals(2, testCart.getProducts().get(peanuts.getId()).getQuantity());
+        assertEquals(3, testCart.getProducts().get(peanuts.getId()).getQuantity());
     }
 
     @Test
     public void checkIfProductIsCorrectlyDecremented() {
         ShoppingCart testCart = cart;
         testCart.removeProduct(peanuts, 1, false);
-        assertEquals(0, testCart.getProducts().get(peanuts.getId()).getQuantity());
+        assertEquals(1, testCart.getProducts().get(peanuts.getId()).getQuantity());
     }
 
     @Test
