@@ -47,7 +47,19 @@ public class ShoppingCartResources {
         return service.save(cart);
     }
 
-    //TODO: Create a PUT request to update the cart and add an product
+    @PutMapping(value = "/{clientID}/{quantity}", produces = "application/json")
+    public void addProduct(@PathVariable String clientID, @PathVariable int quantity, @RequestBody Product product) {
+        Optional<ShoppingCart> clientCart = service.findByClientID(clientID);
+
+        if(!clientCart.isPresent()) {
+            throw new IllegalArgumentException("Shopping Cart not defined for the client id: " + clientID);
+        }
+
+        clientCart.get().addProduct(product, quantity);
+        service.save(clientCart.get());
+    }
+
+    //TODO: Create a PUT request to update the cart and subtract an product
 
     @PostMapping("/checkout/{clientID}/{minTotalPrice}")
     public void checkout(@PathVariable String clientID, @PathVariable double minTotalPrice) {
@@ -58,9 +70,9 @@ public class ShoppingCartResources {
 
         }
 
-//        if(clientCart.get().getProducts().size() <= 0) {
-//            throw new IllegalArgumentException("The shopping cart must have at least one product. Found: " + clientCart.get().getProducts().size());
-//        }
+        if(clientCart.get().getProducts().size() <= 0) {
+            throw new IllegalArgumentException("The shopping cart must have at least one product. Found: " + clientCart.get().getProducts().size());
+        }
 
         if(clientCart.get().getCartTotalPrice() < minTotalPrice) {
             throw new IllegalArgumentException("Total price must exceeds a minimum value established by the restaurant: {" + minTotalPrice + "}. Current Total Price: " + clientCart.get().getCartTotalPrice());

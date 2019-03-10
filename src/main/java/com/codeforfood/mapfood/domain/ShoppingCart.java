@@ -17,7 +17,6 @@ public class ShoppingCart {
     private String id;
     private String clientID;
     private Map<String, Product> products;
-
     private String emporiumId;
     private String paymentMethod;
     private double totalPrice;
@@ -120,7 +119,7 @@ public class ShoppingCart {
 
     private void updateCartTotalPrice() {
         List<Product> productList = new ArrayList<>(products.values());
-        this.totalPrice = productList.stream().mapToDouble(Product::getUnit_price).sum();
+        this.totalPrice = productList.stream().mapToDouble(product -> product.getUnit_price() * product.getQuantity()).sum();
     }
 
 
@@ -143,5 +142,29 @@ public class ShoppingCart {
 
     public double getTotalPrice() {
         return totalPrice;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setClientID(String clientID) {
+        this.clientID = clientID;
+    }
+
+    public void setProducts(Map<String, Product> products) {
+        this.products = products;
+    }
+
+    public void setEmporiumId(String emporiumId) {
+        this.emporiumId = emporiumId;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

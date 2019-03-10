@@ -18,12 +18,11 @@ public class ShoppingCartService {
         return repository.findAll();
     }
 
-    public ShoppingCart save(ShoppingCart cart) {
-        return repository.save(cart);
-    }
-
     public Optional<ShoppingCart> findByClientID(String clientID) {
         return repository.findByClientID(clientID);
     }
 
+    public ShoppingCart save(ShoppingCart cart) {
+        return repository.save(cart);
+    }
 }

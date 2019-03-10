@@ -66,13 +66,14 @@ public class ShoppingCartTest {
                 1.00d);
 
         cart.addProduct(peanuts, 1);
+        cart.addProduct(peanuts, 1);
         cart.addProduct(pizza, 1);
         cart.addProduct(rice, 1);
     }
 
     @Test
     public void checkTotalPrice()  {
-        assertEquals(63.20d, cart.getCartTotalPrice());
+        assertEquals(68.20d, cart.getCartTotalPrice());
     }
 
     @Test
