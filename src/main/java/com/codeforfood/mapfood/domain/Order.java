@@ -12,10 +12,16 @@ public class Order {
     /* The list of items that the client ordered */
     private List<Product> productList;
     private String clientID;
+    private String emporiumID;
+    private String paymentMethod;
+    private Double totalPrice;
 
-    public Order(List<Product> productList, String clientID) {
+    public Order(List<Product> productList, String clientID, String emporiumID, String paymentMethod, Double totalPrice) {
         this.productList = productList;
         this.clientID = clientID;
+        this.emporiumID = emporiumID;
+        this.paymentMethod = paymentMethod;
+        this.totalPrice = totalPrice;
     }
 
     public String getId() {

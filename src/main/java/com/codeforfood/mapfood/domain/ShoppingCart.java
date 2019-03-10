@@ -17,6 +17,7 @@ public class ShoppingCart {
     private String id;
     private String clientID;
     private Map<String, Product> products;
+
     private String emporiumId;
     private String paymentMethod;
     private double totalPrice;
@@ -130,5 +131,17 @@ public class ShoppingCart {
 
     public String getClientID() {
         return clientID;
+    }
+
+    public String getEmporiumId() {
+        return emporiumId;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
     }
 }

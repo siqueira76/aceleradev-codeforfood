@@ -66,11 +66,14 @@ public class ShoppingCartResources {
             throw new IllegalArgumentException("Total price must exceeds a minimum value established by the restaurant: {" + minTotalPrice + "}. Current Total Price: " + clientCart.get().getCartTotalPrice());
         }
 
-        //TODO: Checkout the client shopping cart and generates an order
-
         List<Product> productList = new ArrayList<>(clientCart.get().getProducts().values());
-        System.out.println("PRODUCTs LIST SIZE: " + productList.size());
-        Order order = new Order(productList, clientCart.get().getClientID());
+        Order order = new Order(
+                productList,
+                clientCart.get().getClientID(),
+                clientCart.get().getEmporiumId(),
+                clientCart.get().getPaymentMethod(),
+                clientCart.get().getTotalPrice()
+        );
         orderResources.save(order);
     }
 
