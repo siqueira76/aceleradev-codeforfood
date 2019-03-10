@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -15,5 +16,15 @@ public class OrderService {
     public List<Order> findAll(){
         return repository.findAll();
     }
+
+    public List<Order> findByClientID(String clientID) {
+        return repository.findByClientID(clientID);
+    }
+
+    public Order save(Order order) {
+        return repository.save(order);
+    }
+
+
 
 }

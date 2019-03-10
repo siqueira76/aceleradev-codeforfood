@@ -13,8 +13,7 @@ public class Order {
     private List<Product> productList;
     private String clientID;
 
-    public Order(String id, List<Product> productList, String clientID) {
-        this.id = id;
+    public Order(List<Product> productList, String clientID) {
         this.productList = productList;
         this.clientID = clientID;
     }
