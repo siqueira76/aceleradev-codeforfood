@@ -3,10 +3,9 @@ package com.codeforfood.mapfood.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.GeoResults;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.codeforfood.mapfood.domain.Motoboy;
 import com.codeforfood.mapfood.service.MotoboyService;
@@ -24,4 +23,13 @@ public class MotoboyResources {
 		return ResponseEntity.ok().body(motoboys);
 	}
 
+	@GetMapping(value="/{id}")
+	public Motoboy findById(@PathVariable(value="id") String id){
+		return service.findById(id);
+	}
+
+	@GetMapping(value="/teste")
+	public GeoResults<Motoboy> findByLocation(){
+		return service.findByLocation();
+	}
 }
