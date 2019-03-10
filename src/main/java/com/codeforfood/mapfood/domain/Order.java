@@ -12,11 +12,16 @@ public class Order {
     /* The list of items that the client ordered */
     private List<Product> productList;
     private String clientID;
+    private String emporiumID;
+    private String paymentMethod;
+    private Double totalPrice;
 
-    public Order(String id, List<Product> productList, String clientID) {
-        this.id = id;
+    public Order(List<Product> productList, String clientID, String emporiumID, String paymentMethod, Double totalPrice) {
         this.productList = productList;
         this.clientID = clientID;
+        this.emporiumID = emporiumID;
+        this.paymentMethod = paymentMethod;
+        this.totalPrice = totalPrice;
     }
 
     public String getId() {
@@ -41,5 +46,31 @@ public class Order {
 
     public void setClientID(String clientID) {
         this.clientID = clientID;
+    }
+
+
+    public void setEmporiumID(String emporiumID) {
+        this.emporiumID = emporiumID;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+
+    public String getEmporiumID() {
+        return emporiumID;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
     }
 }
