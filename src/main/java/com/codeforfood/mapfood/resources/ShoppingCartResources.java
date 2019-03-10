@@ -47,7 +47,7 @@ public class ShoppingCartResources {
         return service.save(cart);
     }
 
-    @PutMapping(value = "/{clientID}/{quantity}", produces = "application/json")
+    @PutMapping(value = "/add/{clientID}/{quantity}", produces = "application/json")
     public void addProduct(@PathVariable String clientID, @PathVariable int quantity, @RequestBody Product product) {
         Optional<ShoppingCart> clientCart = service.findByClientID(clientID);
 
@@ -59,7 +59,18 @@ public class ShoppingCartResources {
         service.save(clientCart.get());
     }
 
-    //TODO: Create a PUT request to update the cart and subtract an product
+    @PutMapping(value = "/remove/{clientID}/{quantity}/{removeAll}", produces = "application/json")
+    public void removeProduct(@PathVariable String clientID, @PathVariable int quantity, @PathVariable boolean removeAll, @RequestBody Product product) {
+        Optional<ShoppingCart> clientCart = service.findByClientID(clientID);
+
+        if(!clientCart.isPresent()) {
+            throw new IllegalArgumentException("Shopping Cart not defined for the client id: " + clientID);
+        }
+
+        clientCart.get().removeProduct(product, quantity, removeAll);
+
+        service.save(clientCart.get());
+    }
 
     @PostMapping("/checkout/{clientID}/{minTotalPrice}")
     public void checkout(@PathVariable String clientID, @PathVariable double minTotalPrice) {
