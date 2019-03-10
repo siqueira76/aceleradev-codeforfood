@@ -47,4 +47,30 @@ public class Order {
     public void setClientID(String clientID) {
         this.clientID = clientID;
     }
+
+
+    public void setEmporiumID(String emporiumID) {
+        this.emporiumID = emporiumID;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+
+    public String getEmporiumID() {
+        return emporiumID;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
 }
