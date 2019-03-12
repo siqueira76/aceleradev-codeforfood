@@ -1,12 +1,11 @@
 package com.codeforfood.mapfood.resources;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.codeforfood.mapfood.domain.Client;
 import com.codeforfood.mapfood.service.ClientService;
@@ -22,6 +21,11 @@ public class ClientResources {
 	public ResponseEntity<List<Client>> findAll(){
 		List<Client> clients = service.findAll();
 		return ResponseEntity.ok().body(clients);
+	}
+
+	@GetMapping("/{id}")
+	public Client findById(@PathVariable String id){
+		return service.findById(id);
 	}
 
 }

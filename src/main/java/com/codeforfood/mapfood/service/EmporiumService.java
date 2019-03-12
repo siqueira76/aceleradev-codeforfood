@@ -18,4 +18,9 @@ public class EmporiumService {
 		return repository.findAll();
 	}
 
+
+	public Emporium findById(String id) {
+		return repository.findById(id).get();
+	}
+
 }
