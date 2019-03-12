@@ -18,8 +18,9 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public Client(int iD_Cliente, double longitude, double latitude) {
+	public Client(String id, int iD_Cliente, double longitude, double latitude) {
 		super();
+		this.id = id;
 		ID_Cliente = iD_Cliente;
 		Longitude = longitude;
 		Latitude = latitude;
@@ -47,6 +48,10 @@ public class Client implements Serializable {
 
 	public void setLatitude(double latitude) {
 		Latitude = latitude;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	@Override
